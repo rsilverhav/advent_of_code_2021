@@ -1,0 +1,3 @@
+node_modules/
+*.log
+input_*.ts
