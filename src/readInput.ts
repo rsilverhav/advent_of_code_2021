@@ -1,9 +1,11 @@
 import * as fs from 'fs'
 
 export function readInput(path: string): string[] {
-  const res = fs.readFileSync(path)
-
-  return res.toString().split('\n')
+  const fileData = fs.readFileSync(path)
+  const rows = fileData.toString().split('\n')
+  // Last line has a \n, removing the empty element
+  rows.pop()
+  return rows
 }
 
 export function readNumberInput(path: string): number[] {
