@@ -6,7 +6,8 @@
   "scripts": {
     "start": "scripts/run.sh",
     "test": "scripts/run_test.sh",
-    "test_debug": "npx jest --testRegex \"src/.*Spec.*\\.ts\""
+    "test_debug": "npx jest --testRegex \"src/.*Spec.*\\.ts\"",
+    "newDay": "scripts/new_day.sh"
   },
   "author": "",
   "license": "ISC",

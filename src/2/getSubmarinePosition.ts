@@ -11,8 +11,7 @@ function getSubmarinePositionBase(commands: string[], actions: Actions): number 
   const currentPosition: Position = { x: 0, y: 0 }
   for (const command of commands) {
     const [direction, amount] = command.split(' ')
-    const numAmount = Number(amount)
-    const actionDelta = actions[direction as Directions](numAmount)
+    const actionDelta = actions[direction as Directions](Number(amount))
     currentPosition.x += actionDelta.dx
     currentPosition.y += actionDelta.dy
   }
