@@ -22,14 +22,14 @@ const testData = [
   ' 2  0 12  3  7',
 ]
 
-describe('parseBingo', () => {
-  fit('parses the given test input', () => {
+describe('parseBingoInputs', () => {
+  it('parses the given test input', () => {
     expect(parseBingoInput(testData)).toEqual({
       bingoNumbers: [
         7, 4, 9, 5, 11, 17, 23, 2, 0, 14, 21, 24, 10, 16, 13, 6, 15, 25, 12, 22, 18, 20, 8, 19, 3,
         26, 1,
       ],
-      bingoBoards: [
+      bingoBoardsData: [
         [
           [22, 13, 17, 11, 0],
           [8, 2, 23, 4, 24],

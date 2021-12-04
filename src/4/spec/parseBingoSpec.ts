@@ -1,4 +1,3 @@
-// @ts-ignore
 import { parseBingo } from '../parseBingo'
 
 const testData = [
@@ -25,6 +24,6 @@ const testData = [
 
 describe('parseBingo', () => {
   it('parses the given test data', () => {
-    expect(testData).toBeTruthy()
+    expect(parseBingo(testData)).toBe(4512)
   })
 })

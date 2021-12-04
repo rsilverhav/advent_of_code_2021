@@ -1,4 +1,4 @@
-export type BingoBoard = number[][]
+export type BingoBoardData = number[][]
 
 function getNumberRow(row: string, regex: RegExp) {
   return row
@@ -9,14 +9,14 @@ function getNumberRow(row: string, regex: RegExp) {
 
 export function parseBingoInput(bingoInput: string[]): {
   bingoNumbers: number[]
-  bingoBoards: BingoBoard[]
+  bingoBoardsData: BingoBoardData[]
 } {
   const bingoNumbers: number[] = []
-  const bingoBoards: BingoBoard[] = []
+  const bingoBoardsData: BingoBoardData[] = []
 
   let parsingBingoNumbers = true
 
-  let currentBoard: BingoBoard = []
+  let currentBoard: BingoBoardData = []
   for (const inputRow of bingoInput) {
     if (parsingBingoNumbers) {
       if (inputRow === '') {
@@ -27,17 +27,17 @@ export function parseBingoInput(bingoInput: string[]): {
       }
     } else {
       if (inputRow === '') {
-        bingoBoards.push(currentBoard)
+        bingoBoardsData.push(currentBoard)
         currentBoard = []
       } else {
         currentBoard.push(getNumberRow(inputRow, / +/))
       }
     }
   }
-  bingoBoards.push(currentBoard)
+  bingoBoardsData.push(currentBoard)
 
   return {
     bingoNumbers,
-    bingoBoards,
+    bingoBoardsData,
   }
 }
