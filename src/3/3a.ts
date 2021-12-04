@@ -1,6 +1,6 @@
 import { readInput } from '../readInput'
-import { getDiagnosticValue } from './getDiagnosticValue'
+import { getGammaEpsilon } from './getDiagnosticValue'
 
 const input = readInput('./src/3/input_3')
 
-console.log('3a: ', getDiagnosticValue(input))
+console.log('3a: ', getGammaEpsilon(input))

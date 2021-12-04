@@ -1,4 +1,4 @@
-import { getDiagnosticValue } from '../getDiagnosticValue'
+import { getGammaEpsilon, getOxygenCO2 } from '../getDiagnosticValue'
 
 describe('getDiagnosticValue', () => {
   const input = [
@@ -15,8 +15,14 @@ describe('getDiagnosticValue', () => {
     '00010',
     '01010',
   ]
-
-  it('should parse the test input correctly', () => {
-    expect(getDiagnosticValue(input)).toBe(198)
+  describe('getGammaEpsilon', () => {
+    it('should parse the test input correctly', () => {
+      expect(getGammaEpsilon(input)).toBe(198)
+    })
+  })
+  describe('getOxygenCO2', () => {
+    it('should parse the test input correctly', () => {
+      expect(getOxygenCO2(input)).toBe(230)
+    })
   })
 })
