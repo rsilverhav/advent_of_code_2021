@@ -1,10 +1,12 @@
 export class BingoBoard {
   boardData: { num: number; marked: boolean }[][]
+  hasWon: boolean
   private _width: number
   private _height: number
 
   constructor(boardData: number[][]) {
     this.boardData = []
+    this.hasWon = false
 
     this._width = boardData[0].length
     this._height = boardData.length
@@ -32,8 +34,8 @@ export class BingoBoard {
         completeColumns[x] = !completeColumns[x] ? completeColumns[x] : this.boardData[y][x].marked
       }
     }
-
-    return !!completeRows.find((r) => r) || !!completeColumns.find((c) => c)
+    this.hasWon = !!completeRows.find((r) => r) || !!completeColumns.find((c) => c)
+    return this.hasWon
   }
 
   calculateUnmarkedSum(): number {

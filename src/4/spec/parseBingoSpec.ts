@@ -24,6 +24,6 @@ const testData = [
 
 describe('parseBingo', () => {
   it('parses the given test data', () => {
-    expect(parseBingo(testData)).toBe(4512)
+    expect(parseBingo(testData)).toEqual({ firstWin: 4512, lastWin: 1924 })
   })
 })
