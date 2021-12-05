@@ -14,7 +14,10 @@ const testData = [
 ]
 
 describe('parseLines', () => {
-  it('finds nr of overlapping points of all lines', () => {
+  it('finds nr of overlapping points of all lines, only straight lines', () => {
     expect(findOverlappingLines(testData)).toBe(5)
+  })
+  it('finds nr of overlapping points of all lines, including diagonal', () => {
+    expect(findOverlappingLines(testData, true)).toBe(12)
   })
 })

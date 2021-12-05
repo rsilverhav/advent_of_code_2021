@@ -6,27 +6,34 @@ function isStraightLine(line: Line): boolean {
 
 function getPointsInLine(line: Line): Point[] {
   const linePoints: Point[] = []
-  if (line.start.x === line.end.x) {
-    for (let y = Math.min(line.start.y, line.end.y); y <= Math.max(line.start.y, line.end.y); y++) {
-      linePoints.push({ x: line.start.x, y })
+  const currentPoint: Point = { x: line.start.x, y: line.start.y }
+
+  linePoints.push({ ...currentPoint })
+
+  while (currentPoint.x !== line.end.x || currentPoint.y !== line.end.y) {
+    if (currentPoint.x !== line.end.x) {
+      currentPoint.x += currentPoint.x < line.end.x ? 1 : -1
     }
-  } else if (line.start.y === line.end.y) {
-    for (let x = Math.min(line.start.x, line.end.x); x <= Math.max(line.start.x, line.end.x); x++) {
-      linePoints.push({ x, y: line.start.y })
+    if (currentPoint.y !== line.end.y) {
+      currentPoint.y += currentPoint.y < line.end.y ? 1 : -1
     }
+    linePoints.push({ ...currentPoint })
   }
+
   return linePoints
 }
 function getIndexFromPoint(point: Point): string {
   return `${point.x},${point.y}`
 }
 
-export function findOverlappingLines(lineInputs: string[]) {
+export function findOverlappingLines(lineInputs: string[], includeDiagonal?: boolean) {
   const lines = parseLineInput(lineInputs)
   const visited: { [key: string]: number } = {}
 
   for (const line of lines) {
-    if (isStraightLine(line)) {
+    if (includeDiagonal || isStraightLine(line)) {
+      if (!isStraightLine(line)) {
+      }
       const points = getPointsInLine(line)
       for (const point of points) {
         visited[getIndexFromPoint(point)] = (visited[getIndexFromPoint(point)] ?? 0) + 1
