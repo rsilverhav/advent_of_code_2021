@@ -1,10 +1,10 @@
-export interface Position {
+export interface Point {
   x: number
   y: number
 }
 export interface Line {
-  start: Position
-  end: Position
+  start: Point
+  end: Point
 }
 
 export function parseLineInput(lineInputs: string[]): Line[] {
