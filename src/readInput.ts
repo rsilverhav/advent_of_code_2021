@@ -9,7 +9,10 @@ export function readInput(path: string): string[] {
 }
 
 export function readNumberInput(path: string): number[] {
-  const stringArr = readInput(path)
+  let stringArr = readInput(path)
+  if (stringArr.length === 1 && stringArr[0].includes(',')) {
+    stringArr = stringArr[0].split(',')
+  }
   return stringArr.map((s) => {
     const num = Number(s)
     if (Number.isNaN(num)) {
